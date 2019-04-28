@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Landmark Pinnacle</title>
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1">
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?254204b98cf97369a724b4848d0b0dcd";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <!--监测代码-->
+  <script type="text/javascript">
+    function fireEvent(eventType, eventName){
+      var PROPERTY_ID = "3ed196d0b5ee492d826be1033ede4f4b";
+      var PING_SERVER_URL = "https://advertiser.inmobiapis.cn/tpce/v1/events/"+eventType+"?trackingPartner=InMobi&country=CN";
+      var pageData = {};
+      if(typeof InmobiPixel != "undefined"){
+        window.inmobiPixel = new InmobiPixel();
+        window.inmobiPixel.init({
+          pingServer: PING_SERVER_URL,
+          propertyId: PROPERTY_ID,
+          ping_interval: 6000 
+        });
+      }
+      window.inmobiPixel.ping(eventName, pageData);
+    }
+
+
+    function fireCustomEvent(eventName) {
+      fireEvent("custom", eventName);
+      if (_hmt) {
+        _hmt.push(['_trackEvent', "custom", eventName, "landmark"]);
+      }
+    }
+
+    function fireDownloadEvent() {
+      fireEvent("download", "download");
+      if (_hmt) {
+        _hmt.push(['_trackEvent', "download", "download", "landmark"]);
+      }
+    }
+  </script>
+  <script type="text/javascript" charset="UTF-8" src="https://inmobi.oss-cn-hangzhou.aliyuncs.com/pixel/inmobipixel.js" onload='fireCustomEvent("landmark_lp")'>
+  </script>
+</head>
+
+<body>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <style type="text/css" media="screen">
+    body {
+      margin: 0;
+    }
+    .cross-img {
+      display: block;
+      width: 100%;
+    }
+    .form {
+      font-family: 'Rubik', sans-serif;
+      padding: 40px 15px 20px 15px;
+    }
+    .submit-form-item {
+      padding-top: 15px;
+    }
+    .submit-form-item .el-form-item__content {
+      text-align: center;
+    }
+    .submit-form-item .el-form-item__content .el-button {
+      width: 100%;
+      text-align: center;
+      border-radius: 100px !important;
+      padding: 1rem 3rem;
+      font-weight: 500;
+      border-width: 2px;
+      font-style: normal;
+      letter-spacing: 1px;
+      white-space: normal;
+      word-break: break-word;
+      padding: 1rem 3rem;
+    }
+    .form .el-input input {
+      background-color: #f5f5f5;
+      box-shadow: none;
+      color: #565656;
+      font-size: 1rem;
+      line-height: 1.43;
+      min-height: 3.5em;
+      padding: 1.07em .5em;
+    }
+    .align-center {
+      text-align: center;
+    }
+    .mbr-section-title {
+      font-family: 'Rubik', sans-serif;
+      padding-bottom: 1rem!important;
+      font-weight: 300;
+      margin-top: 0;
+      margin-bottom: .5rem;
+      font-size: 2.4rem;
+      font-size: calc( 1.7rem + (3 - 1.7) * ((100vw - 20rem) / (48 - 20)));
+      line-height: calc( 1.4 * (1.7rem + (3 - 1.7) * ((100vw - 20rem) / (48 - 20))));
+    }
+    .mbr-section-subtitle {
+      font-family: 'Rubik', sans-serif;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-bottom: 1rem!important;
+      font-weight: 300;
+      color: #767676;
+      font-size: 1.2rem;
+      font-size: calc( 1.175rem + (1.5 - 1.175) * ((100vw - 20rem) / (48 - 20)));
+      line-height: calc( 1.4 * (1.175rem + (1.5 - 1.175) * ((100vw - 20rem) / (48 - 20))));
+
+    }
+  </style>
+  <div id="app">
+    <template>
+      <img src="https://inmobi.oss-cn-hangzhou.aliyuncs.com/images/landmark-part-1.jpeg" class="cross-img">
+      <div class="form">
+        <div class="title col-12 col-lg-8">
+          <h2 class="mbr-section-title align-center">
+            联系表单
+          </h2>
+          <h3 class="mbr-section-subtitle align-center">
+            如果您想了解更多海外资讯<br>请提供以下信息
+          </h3>
+        </div>
+        <el-form :model="form" :rules="rules" ref="form2" label-position="top" class="contact-form">
+          <el-form-item label="姓名" prop="name">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item label="手机号" prop="phone">
+            <el-input v-model="form.phone"></el-input>
+          </el-form-item>
+          <el-form-item class="submit-form-item">
+            <el-button type="primary" @click="submitForm('form2')">提交</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+      <img src="https://inmobi.oss-cn-hangzhou.aliyuncs.com/images/landmark-part-2.jpeg" class="cross-img">
+      <img src="https://inmobi.oss-cn-hangzhou.aliyuncs.com/images/landmark-part-3.jpeg" class="cross-img">
+      <img src="https://inmobi.oss-cn-hangzhou.aliyuncs.com/images/landmark-part-4.jpeg" class="cross-img">
+      <div class="form">
+        <div class="title col-12 col-lg-8">
+          <h2 class="mbr-section-title align-center">
+            联系表单
+          </h2>
+          <h3 class="mbr-section-subtitle align-center">
+            如果您想了解更多海外资讯<br>请提供以下信息
+          </h3>
+        </div>
+        <el-form :model="form" :rules="rules" ref="form1" label-position="top" class="contact-form">
+          <el-form-item label="姓名" prop="name">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item label="手机号" prop="phone">
+            <el-input v-model="form.phone"></el-input>
+          </el-form-item>
+          <el-form-item class="submit-form-item">
+            <el-button type="primary" @click="submitForm('form2')">提交</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+    </template>
+  </div>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- <script src="https://inmobi.oss-cn-hangzhou.aliyuncs.com/js/ajax.js"></script> -->
+  <script>
+    var Main = {
+      data: function () {
+        var phoneReg = /^1(?:3\d|4[4-9]|5[0-35-9]|6[67]|7[013-8]|8\d|9\d)\d{8}$/;
+        return {
+          form: {
+            name: "",
+            phone: ""
+          },
+          rules: {
+            name: [
+              { required: true, message: '请输入姓名', trigger: 'blur' },
+              { min: 1, max: 4, message: '长度在 1 到 4 个字符', trigger: 'blur' }
+            ],
+            phone: [
+              { required: true, message: '请输入手机号', trigger: 'blur' },
+              { pattern: phoneReg, message: '手机号格式错误', trigger: 'blur' }
+            ]
+          }
+        };
+      },
+      methods: {
+        submitForm(formName) {
+          var _this = this;
+          this.$refs[formName].validate(function(valid){
+            if (valid) {
+              var url = 'http://47.110.148.192:8080/zlx/contact/tracker?page=landmark&name=' + _this.form.name + '&phone=' + _this.form.phone;
+              new Image().src = url;
+              fireDownloadEvent();
+              _this.$message({
+                message: '联系方式已提交',
+                type: 'success'
+              });
+              // ajax({
+              //   method: 'GET',
+              //   url: url,
+              //   data: {
+              //     page: "landmark",
+              //     name: _this.form.name,
+              //     phone: _this.form.phone,
+              //   },
+              //   success: function (response) {
+              //     _this.$message({
+              //       message: '联系方式已提交',
+              //       type: 'success'
+              //     });
+              //     fireDownloadEvent();
+              //   }
+              // });
+            } else {
+              console.log('error submit!!');
+              return false;
+            }
+          });
+        },
+      }
+    }
+    var Ctor = Vue.extend(Main)
+    var app = new Ctor().$mount('#app')
+  </script>
+</body>
+
+</html>
